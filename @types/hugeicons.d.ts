@@ -1,0 +1,27 @@
+declare module "@hugeicons/core-free-icons" {
+  export const Mail02Icon: any;
+  export const ViewIcon: any;
+  export const ViewOffIcon: any;
+  export const AccessIcon: any;
+  export const ArrowRight02Icon: any;
+  export const Upload04Icon: any;
+  export const ChartHistogramIcon: any;
+  export const PackageIcon: any;
+  export const PlusSignIcon: any;
+  export const Calendar04Icon: any;
+  export const Logout01Icon: any;
+  export const Search01Icon: any;
+  export const SaleTag02Icon: any;
+  export const Store04Icon: any;
+  export const UserMultipleIcon: any;
+  export const ArrowLeft02Icon: any;
+  export const AlertCircleIcon: any;
+  export const ArrowDown01Icon: any;
+  export const ArrowUp01Icon: any;
+  export const Tick02Icon: any;
+  export const Cancel01Icon: any;
+  export const ImageUploadIcon: any;
+  export const CallIcon: any;
+  export const UserIcon: any;
+  export const FilterVerticalIcon: any;
+}
