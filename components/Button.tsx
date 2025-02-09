@@ -76,10 +76,10 @@ export function Button({
 }: ButtonProps) {
   const isIconOnly = !!(iconLeft && !title && !iconRight);
   const iconSize = size === "medium" ? 24 : 20;
-  const buttonSize = size === "medium" ? "w-14 h-14" : "w-10 h-10";
+  const buttonSize = size === "medium" ? "w-14 h-14 justify-center" : "w-10 h-10 justify-center";
 
   const bgSpacing = size === "medium" ? "py-4 px-5 gap-3" : "py-3 px-4 gap-2";
-  const bgSize = isIconOnly ? buttonSize : "";
+  const bgSize = isIconOnly ? buttonSize : "justify-between";
   const bgColor =
     variation === "solid" ? "bg-orange-base border-transparent" : "bg-transparent border-orange-base";
   const textColor = variation === "solid" ? "text-white" : "text-orange-base";
@@ -89,12 +89,12 @@ export function Button({
 
   return (
     <TouchableOpacity
-      className={`rounded-xl flex-row items-center justify-center border ${bgColor} ${bgSpacing} ${bgSize}`}
+      className={`rounded-xl flex-row items-center border ${bgColor} ${bgSpacing} ${bgSize}`}
       // style={isIconOnly ? { width: buttonSize, height: buttonSize } : {}}
       {...rest}
     >
       {LeftIcon && <HugeiconsIcon icon={LeftIcon} size={iconSize} color={variation === "solid" ? "white" : "#F24D0D"} strokeWidth={1.5} />}
-      {title && <Text className={`font-medium text-${size === "medium" ? "base" : "sm"} ${textColor}`}>{title}</Text>}
+      {title && <Text className={`font-medium text-center flex-1 text-${size === "medium" ? "base" : "sm"} ${textColor}`}>{title}</Text>}
       {RightIcon && <HugeiconsIcon icon={RightIcon} size={iconSize} color={variation === "solid" ? "white" : "orange"} strokeWidth={1.5} />}
     </TouchableOpacity>
   );
