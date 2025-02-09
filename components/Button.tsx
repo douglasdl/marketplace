@@ -94,7 +94,7 @@ export function Button({
       {...rest}
     >
       {LeftIcon && <HugeiconsIcon icon={LeftIcon} size={iconSize} color={variation === "solid" ? "white" : "#F24D0D"} strokeWidth={1.5} />}
-      {title && <Text className={`font-medium text-center flex-1 text-${size === "medium" ? "base" : "sm"} ${textColor}`}>{title}</Text>}
+      {title && <Text className={`font-medium text-${size === "medium" ? "base" : "sm"} ${textColor}`}>{title}</Text>}
       {RightIcon && <HugeiconsIcon icon={RightIcon} size={iconSize} color={variation === "solid" ? "white" : "orange"} strokeWidth={1.5} />}
     </TouchableOpacity>
   );
