@@ -17,5 +17,17 @@ Start the Project:
 npx expo start
 ```
 
+React Hook Form
+```sh
+npm install react-hook-form
+```
+
+## Layout
+
+- [Figma](https://www.figma.com/design/It4qZaWkBwox95wDjs5vLU/App-de-Marketplace?node-id=3-376&p=f&t=Bepwn9NdIPKBXXb9-0)
+
 ## Icons
 - [Huge Icons](https://hugeicons.com/icons?style=Stroke&type=Rounded)
+```sh
+npm install @hugeicons/react-native @hugeicons/core-free-icons react-native-svg
+```
