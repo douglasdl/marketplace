@@ -1,69 +1,13 @@
-import { Text, TouchableOpacity, TouchableOpacityProps, View } from "react-native"
-import { HugeiconsIcon } from "@hugeicons/react-native"
-import {
-  Mail02Icon,
-  ViewIcon,
-  ViewOffIcon,
-  AccessIcon,
-  ArrowRight02Icon,
-  Upload04Icon,
-  ChartHistogramIcon,
-  PackageIcon,
-  PlusSignIcon,
-  Calendar04Icon,
-  Logout01Icon,
-  Search01Icon,
-  SaleTag02Icon,
-  Store04Icon,
-  UserMultipleIcon,
-  ArrowLeft02Icon,
-  AlertCircleIcon,
-  ArrowDown01Icon,
-  ArrowUp01Icon,
-  Tick02Icon,
-  Cancel01Icon,
-  ImageUploadIcon,
-  CallIcon,
-  UserIcon,
-  FilterVerticalIcon,
-} from "@hugeicons/core-free-icons"
+import { Text, TouchableOpacity, TouchableOpacityProps } from "react-native"
+import { Icon, IconName } from "./Icon"
 
-const iconMap = {
-  Mail02Icon,
-  ViewIcon,
-  ViewOffIcon,
-  AccessIcon,
-  ArrowRight02Icon,
-  Upload04Icon,
-  ChartHistogramIcon,
-  PackageIcon,
-  PlusSignIcon,
-  Calendar04Icon,
-  Logout01Icon,
-  Search01Icon,
-  SaleTag02Icon,
-  Store04Icon,
-  UserMultipleIcon,
-  ArrowLeft02Icon,
-  AlertCircleIcon,
-  ArrowDown01Icon,
-  ArrowUp01Icon,
-  Tick02Icon,
-  Cancel01Icon,
-  ImageUploadIcon,
-  CallIcon,
-  UserIcon,
-  FilterVerticalIcon,
-} as const;
-
-type IconName = keyof typeof iconMap;
 
 export interface ButtonProps extends TouchableOpacityProps {
-  title?: string;
-  variation?: "solid" | "outline";
-  size?: "small" | "medium";
-  iconLeft?: IconName;
-  iconRight?: IconName;
+  title?: string
+  variation?: "solid" | "outline"
+  size?: "small" | "medium"
+  iconLeft?: IconName
+  iconRight?: IconName
 }
 
 export function Button({
@@ -83,19 +27,16 @@ export function Button({
   const bgColor =
     variation === "solid" ? "bg-orange-base border-transparent" : "bg-transparent border-orange-base";
   const textColor = variation === "solid" ? "text-white" : "text-orange-base";
-
-  const LeftIcon = iconLeft ? iconMap[iconLeft] : null;
-  const RightIcon = iconRight ? iconMap[iconRight] : null;
+  const iconColor = variation === "solid" ? "text-white" : "text-orange-base"; //#F24D0D
 
   return (
     <TouchableOpacity
       className={`rounded-xl flex-row items-center border ${bgColor} ${bgSpacing} ${bgSize}`}
-      // style={isIconOnly ? { width: buttonSize, height: buttonSize } : {}}
       {...rest}
     >
-      {LeftIcon && <HugeiconsIcon icon={LeftIcon} size={iconSize} color={variation === "solid" ? "white" : "#F24D0D"} strokeWidth={1.5} />}
+      {iconLeft && <Icon name={iconLeft} size={iconSize} color={variation === "solid" ? "white" : iconColor} />}
       {title && <Text className={`font-medium text-${size === "medium" ? "base" : "sm"} ${textColor}`}>{title}</Text>}
-      {RightIcon && <HugeiconsIcon icon={RightIcon} size={iconSize} color={variation === "solid" ? "white" : "#F24D0D"} strokeWidth={1.5} />}
+      {iconRight && <Icon name={iconRight} size={iconSize} color={variation === "solid" ? "white" : iconColor} />}
     </TouchableOpacity>
   );
 }
