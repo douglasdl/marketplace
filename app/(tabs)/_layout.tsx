@@ -3,6 +3,7 @@ import FontAwesome from '@expo/vector-icons/FontAwesome'
 import { Link, Tabs } from 'expo-router'
 import { Pressable } from 'react-native'
 import colors from "tailwindcss/"
+import { Icon } from '@/components/Icon'
 
 // You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
 function TabBarIcon(props: {
@@ -24,8 +25,8 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Produtos',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'PRODUTOS',
+          tabBarIcon: ({ color }) => <Icon name="Store04Icon" color={color} />,
           headerRight: () => (
             <Link href="/filter" asChild>
               <Pressable>
@@ -45,8 +46,8 @@ export default function TabLayout() {
       <Tabs.Screen
         name="profile"
         options={{
-          title: 'Perfil',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'PERFIL',
+          tabBarIcon: ({ color }) => <Icon name="UserIcon" color={color} />,
         }}
       />
     </Tabs>
