@@ -14,7 +14,7 @@ export function ImageInput({ onSelectImage }: ImageInputProps) {
     <View className="w-full items-center justify-center">
       <TouchableOpacity 
         onPress={onSelectImage}
-        className="w-32 h-32 bg-shape p-11 rounded-xl"  
+        className="w-32 h-32 bg-shape items-center justify-center rounded-xl"  
       >
         <Icon name="ImageUploadIcon" color="#F24D0D" />
       </TouchableOpacity>
