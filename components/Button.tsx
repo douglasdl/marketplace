@@ -27,7 +27,7 @@ export function Button({
   const bgColor =
     variation === "solid" ? "bg-orange-base border-transparent" : "bg-transparent border-orange-base";
   const textColor = variation === "solid" ? "text-white" : "text-orange-base";
-  const iconColor = variation === "solid" ? "text-white" : "text-orange-base"; //#F24D0D
+  const iconColor = variation === "solid" ? "white" : "#F24D0D";
 
   return (
     <TouchableOpacity
