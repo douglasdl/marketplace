@@ -23,7 +23,7 @@ export function Button({
   const buttonSize = size === "medium" ? "w-14 h-14 justify-center" : "w-10 h-10 justify-center";
 
   const bgSpacing = size === "medium" ? "py-4 px-5 gap-3" : "py-3 px-4 gap-2";
-  const bgSize = isIconOnly ? buttonSize : "justify-between";
+  const bgSize = isIconOnly ? buttonSize : "justify-between flex-1";
   const bgColor =
     variation === "solid" ? "bg-orange-base border-transparent" : "bg-transparent border-orange-base";
   const textColor = variation === "solid" ? "text-white" : "text-orange-base";

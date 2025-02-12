@@ -3,10 +3,10 @@ import { Icon } from "./Icon"
 import { Button } from "./Button"
 
 export interface SearchBoxProps extends TextInputProps {
-  
+  onOpenFilter: () => void
 }
 
-export function SearchBox({ ...rest }: SearchBoxProps) {
+export function SearchBox({ onOpenFilter, ...rest }: SearchBoxProps) {
   return (
     <View className="w-full flex-row gap-4 items-end">
       <View className="flex-row items-center border-b border-b-gray-200 flex-1 py-3 px-0.5 gap-2">
@@ -21,7 +21,7 @@ export function SearchBox({ ...rest }: SearchBoxProps) {
         title=""
         variation="outline"
         iconLeft="FilterVerticalIcon"
-        onPress={() => {}}
+        onPress={onOpenFilter}
       />
     </View>
   )

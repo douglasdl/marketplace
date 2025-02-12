@@ -1,9 +1,13 @@
-import { Image, Platform, Text, View } from "react-native"
+import { Text, View } from "react-native"
 import { Avatar } from "./Avatar"
 import { Icon } from "./Icon"
 import { Filter } from "./Filter"
 
-export function Heading() {
+interface HeadingProps {
+  onOpenFilter: () => void
+}
+
+export function Heading({ onOpenFilter }: HeadingProps) {
   return (
     <View className="bg-white w-full p-6 pt-16 gap-8 rounded-b-3xl">
       <View className="w-full flex-row items-center gap-5">
@@ -16,7 +20,7 @@ export function Heading() {
           </View>
         </View>
       </View>
-      <Filter />
+      <Filter onOpenFilter={onOpenFilter} />
     </View>
   )
 }
