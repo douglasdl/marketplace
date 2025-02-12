@@ -4,22 +4,25 @@ import { useForm, Controller } from "react-hook-form"
 import { Button } from "./Button";
 import { FieldSet } from "./FieldSet";
 
-export function LoginForm() {
+interface LoginFormProps {
+  onLogin: (data: { email: string; password: string }) => void
+}
+
+export function LoginForm({ onLogin }: LoginFormProps) {
   const {
     control,
     handleSubmit,
-    reset,
     formState: { errors },
   } = useForm({
     defaultValues: {
-      firstName: "",
-      lastName: "",
+      email: "",
+      password: "",
     },
   });
 
-  const onSubmit = (data: any) => {
-    console.log(data);
-  };
+  function onSubmit(data: { email: string, password: string }) {
+    onLogin(data);
+  }
 
   return (
     <View className="gap-10">
@@ -28,7 +31,6 @@ export function LoginForm() {
         <FieldSet type="password" label="Senha" control={control} name="password" placeholder="Sua senha" />
       </View>
 
-      
       <Button  
         title="Acessar"
         iconRight="ArrowRight02Icon" 

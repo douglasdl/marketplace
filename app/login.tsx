@@ -1,3 +1,4 @@
+import { useRouter } from "expo-router"
 import { useNavigation } from "expo-router"
 import { useEffect } from "react"
 import { LoginHeader } from "@/components/LoginHeader"
@@ -6,7 +7,13 @@ import { LoginForm } from "@/components/LoginForm"
 import { Button } from "@/components/Button"
 
 export default function Login() {
+  const router = useRouter();
   const navigation = useNavigation();
+
+  function handleLogin(data: { email: string; password: string }) {
+    console.log("Login data:", data);
+    router.replace('/(tabs)')
+  }
 
   useEffect(() => {
     navigation.setOptions({ headerShown: false });
@@ -28,7 +35,7 @@ export default function Login() {
             subtitle="Informe seu e-mail e senha para entrar"
           />
           <View className="flex-1 justify-between">
-            <LoginForm />
+            <LoginForm onLogin={handleLogin} />
             
             <View className="mt-auto mb-10 min-h-10 gap-5">
               <Text>
