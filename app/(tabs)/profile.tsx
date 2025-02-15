@@ -1,29 +1,35 @@
 import { Avatar } from '@/components/Avatar'
-import { Button, Text, TextInput, View } from 'react-native'
+import { UpdateRegisterForm } from '@/components/UpdateRegisterForm'
+import { KeyboardAvoidingView, Platform, ScrollView, TextInput, View } from 'react-native'
 
 export default function Profile() {
   return (
-    <View className='bg-background items-center p-10'>
-      <Avatar photo="https://github.com/douglasdl.png" size='lg' />
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      className="flex-1 bg-background px-10"
+    >
 
-      <Text>Nome</Text>
-      <TextInput />
-      
-      <Text>Telefone</Text>
-      <TextInput />
+      <ScrollView
+        className="flex-1 w-full pt-16 pb-6"
+        contentContainerStyle={{ flexGrow: 1 }}
+        showsVerticalScrollIndicator={false}
+        keyboardShouldPersistTaps="handled"
+      >
+        <View className="gap-10 flex-1 justify-between w-full">
 
-      <Text>Acesso</Text>
-      
-      <Text>E-mail</Text>
-      <TextInput />
-      
-      <Text>Senha atual</Text>
-      <TextInput />
-      
-      <Text>Nova senha</Text>
+          <View className=' items-center w-full'>
+            <Avatar photo="https://github.com/douglasdl.png" size='lg' />
 
-      <Button title='Atualizar cadastro' />
-      <TextInput />
-    </View>
+            <UpdateRegisterForm 
+              name='Douglas Dias Leal'
+              phone='(90) 99999-9999'
+              email='douglas_san@hotmail.com'
+            />
+            <TextInput />
+          </View>
+        </View>
+      </ScrollView>
+    </KeyboardAvoidingView>
+    
   );
 }
