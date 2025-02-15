@@ -29,6 +29,7 @@ export function FieldSet({ label, control, name, type = "name", placeholder }: F
             <Icon name={leftIcon} color="#949494" />
             <TextInput
               placeholder={placeholder}
+              placeholderTextColor="#949494"
               className="px-2 py-4 flex-1 rounded"
               onBlur={onBlur}
               onChangeText={onChange}
