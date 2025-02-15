@@ -35,7 +35,7 @@ export function Button({
       {...rest}
     >
       {iconLeft && <Icon name={iconLeft} size={iconSize} color={variation === "solid" ? "white" : iconColor} />}
-      {title && <Text className={`font-medium text-${size === "medium" ? "base" : "sm"} ${textColor}`}>{title}</Text>}
+      {title && <Text className={`font-medium text-center flex-1 text-${size === "medium" ? "base" : "sm"} ${textColor}`}>{title}</Text>}
       {iconRight && <Icon name={iconRight} size={iconSize} color={variation === "solid" ? "white" : iconColor} />}
     </TouchableOpacity>
   );
