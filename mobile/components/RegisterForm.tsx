@@ -3,17 +3,27 @@ import { Text, View } from "react-native"
 import { useForm, Controller } from "react-hook-form"
 import { Button } from "./Button"
 import { FieldSet } from "./FieldSet"
+import { FormDataProps, signUpSchema } from "@/schemes/signUpSchema"
+import { zodResolver } from "@hookform/resolvers/zod"
 
-export function RegisterForm() {
+interface RegisterFormProps {
+  onRegister: (data: FormDataProps) => void
+}
+
+export function RegisterForm({ onRegister }: RegisterFormProps) {
   const {
     control,
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm({
+  } = useForm<FormDataProps>({
+    resolver: zodResolver(signUpSchema),
     defaultValues: {
-      firstName: "",
-      lastName: "",
+      name: "Douglas Dias Leal",
+      phone: "(55) 99999-9999",
+      email: "douglas_san@hotmail.com",
+      password: "123456",
+      password_confirm: "123456"
     },
   });
 
@@ -34,12 +44,10 @@ export function RegisterForm() {
         <FieldSet type="password" label="Senha" control={control} name="password" placeholder="Sua senha" />
       </View>
 
-
-      
       <Button  
         title="Cadastrar"
         iconRight="ArrowRight02Icon" 
-        onPress={handleSubmit(onSubmit)} 
+        onPress={handleSubmit(onRegister)} 
       />
     </View>
   );

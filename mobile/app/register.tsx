@@ -5,9 +5,16 @@ import { KeyboardAvoidingView, Platform, ScrollView, Text, View } from "react-na
 import { Button } from "@/components/Button"
 import { RegisterForm } from "@/components/RegisterForm"
 import { ImageInput } from "@/components/ImageInput"
+import { api } from "@/services/api"
+import { FormDataProps } from "@/schemes/signUpSchema"
 
 export default function Register() {
   const navigation = useNavigation();
+
+  async function handleRegister({ name, phone, email, password, password_confirm }: FormDataProps) {
+    const response = await api.post('/users', { name, email, password })
+    console.log(response.data)
+  }
 
   useEffect(() => {
     navigation.setOptions({ headerShown: false });
@@ -34,9 +41,11 @@ export default function Register() {
 
           <ImageInput onSelectImage={console.log} />
 
-          <RegisterForm />
+          <RegisterForm 
+            onRegister={handleRegister}
+          />
 
-          <View className="h-52">
+          <View className="pb-24">
             <Text>
               Já tem uma conta?
             </Text>

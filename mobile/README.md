@@ -63,6 +63,7 @@ npm install axios
 ### [Zod](https://zod.dev)
 ```sh
 npm install zod
+npm install @hookform/resolvers
 ```
 
 ## Icons

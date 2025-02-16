@@ -25,6 +25,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
+          headerShown: false,
           title: 'PRODUTOS',
           tabBarIcon: ({ color }) => <Icon name="Store04Icon" color={color} />,
           headerRight: () => (
@@ -46,6 +47,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="profile"
         options={{
+          headerShown: false,
           title: 'PERFIL',
           tabBarIcon: ({ color }) => <Icon name="UserIcon" color={color} />,
         }}
