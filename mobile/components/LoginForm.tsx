@@ -1,6 +1,6 @@
 import * as React from "react"
-import { Text, View, TextInput } from "react-native"
-import { useForm, Controller } from "react-hook-form"
+import { View } from "react-native"
+import { useForm } from "react-hook-form"
 import { Button } from "./Button";
 import { FieldSet } from "./FieldSet";
 
@@ -27,8 +27,22 @@ export function LoginForm({ onLogin }: LoginFormProps) {
   return (
     <View className="gap-10">
       <View className="gap-5">
-        <FieldSet type="email" label="E-mail" control={control} name="email" placeholder="mail@exemplo.br" />
-        <FieldSet type="password" label="Senha" control={control} name="password" placeholder="Sua senha" />
+        <FieldSet 
+          type="email" 
+          label="E-mail" 
+          control={control} 
+          name="email" 
+          placeholder="mail@exemplo.br" 
+          errorMessage={errors.email?.message} 
+        />
+        <FieldSet 
+          type="password" 
+          label="Senha" 
+          control={control} 
+          name="password" 
+          placeholder="Sua senha" 
+          errorMessage={errors.password?.message} 
+        />
       </View>
 
       <Button  

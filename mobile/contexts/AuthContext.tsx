@@ -1,14 +1,26 @@
+import { UserDTO } from "@/dtos/UserDTO";
 import { createContext, useState, ReactNode, useEffect } from "react"
 
-interface AuthContextProps {
+interface AuthContextDataProps {
+  user: UserDTO
   isAuthenticated: boolean;
   login: () => void;
   logout: () => void;
 }
 
-export const AuthContext = createContext<AuthContextProps>({} as AuthContextProps);
+export const AuthContext = createContext<AuthContextDataProps>({} as AuthContextDataProps);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
+  const [user, setUser] = useState<UserDTO>({
+    id: '1',
+    name: 'Douglas Dias Leal',
+    phone: '(55)99999-9999',
+    email: 'douglas_san@hotmail.com',
+    avatarId: null,
+    password: '',
+    passwordConfirmation: ''
+  })
+  
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   // useEffect(() => {
@@ -30,7 +42,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
+    <AuthContext.Provider value={{ user, isAuthenticated, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
