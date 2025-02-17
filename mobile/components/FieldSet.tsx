@@ -1,6 +1,8 @@
 import { Controller } from "react-hook-form";
 import { Text, TextInput, View } from "react-native";
 import { Icon } from "./Icon";
+import { useEffect, useState } from "react";
+import { Button } from "./Button";
 
 interface FieldSetProps {
   label: string
@@ -26,8 +28,14 @@ const rulesMap = {
 } as const;
 
 export function FieldSet({ label, control, name, type = "name", placeholder, errorMessage = null }: FieldSetProps) {
+  const [isVisible, setIsVisible] = useState(false);
   const leftIcon = iconMap[type];
   const rules = rulesMap[type];
+
+  useEffect(() => {
+
+  }, [isVisible])
+
   return (
     <View className="">
       <Text className="text-gray-300 uppercase text-xs font-medium">{label}</Text>
@@ -46,8 +54,15 @@ export function FieldSet({ label, control, name, type = "name", placeholder, err
                 onBlur={onBlur}
                 onChangeText={onChange}
                 value={value}
+                secureTextEntry={type === "password" && !isVisible}
               />
-              {type === "password" && <Icon name="ViewIcon" color="#666666" />}
+              {type === "password" && 
+                <Button 
+                  variation="ghost" 
+                  iconLeft={isVisible ? "ViewIcon" : "ViewOffIcon"}
+                  onPress={() => setIsVisible(!isVisible)} 
+                />
+              }
             </View>
             <Text className="text-red-600">
               {errorMessage}

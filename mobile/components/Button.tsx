@@ -4,7 +4,7 @@ import { Icon, IconName } from "./Icon"
 
 export interface ButtonProps extends TouchableOpacityProps {
   title?: string
-  variation?: "solid" | "outline"
+  variation?: "solid" | "outline" | "ghost" 
   size?: "small" | "medium"
   iconLeft?: IconName
   iconRight?: IconName
@@ -24,10 +24,9 @@ export function Button({
 
   const bgSpacing = size === "medium" ? "py-4 px-5 gap-3" : "py-3 px-4 gap-2";
   const bgSize = isIconOnly ? buttonSize : "justify-between flex-1";
-  const bgColor =
-    variation === "solid" ? "bg-orange-base border-transparent" : "bg-transparent border-orange-base";
+  const bgColor = variation === "solid" ? "bg-orange-base border-transparent" : variation === "ghost" ? "bg-transparent border-transparent" : "bg-transparent border-orange-base";
   const textColor = variation === "solid" ? "text-white" : "text-orange-base";
-  const iconColor = variation === "solid" ? "white" : "#F24D0D";
+  const iconColor = variation === "solid" ? "white" : variation === "ghost" ? "#949494" : "#F24D0D";
 
   return (
     <TouchableOpacity
