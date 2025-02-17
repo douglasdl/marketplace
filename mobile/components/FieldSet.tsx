@@ -26,7 +26,7 @@ export function FieldSet({ label, control, name, type = "name", placeholder }: F
         control={control}
         render={({ field: { onChange, onBlur, value } }) => (
           <View className="flex-row w-full items-center border-b border-b-gray-200">
-            <Icon name={leftIcon} color="#949494" />
+            <Icon name={leftIcon} color={value === "" ? "#949494" : "#F24D0D"} />
             <TextInput
               placeholder={placeholder}
               placeholderTextColor="#949494"
