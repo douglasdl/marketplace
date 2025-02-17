@@ -7,13 +7,31 @@ import { RegisterForm } from "@/components/RegisterForm"
 import { ImageInput } from "@/components/ImageInput"
 import { api } from "@/services/api"
 import { FormDataProps } from "@/schemes/signUpSchema"
+import { AppError } from "@/utils/AppError"
+import Toast from "react-native-toast-message"
 
 export default function Register() {
+
   const navigation = useNavigation();
 
-  async function handleRegister({ name, phone, email, password, password_confirm }: FormDataProps) {
-    const response = await api.post('/users', { name, email, password })
-    console.log(response.data)
+  async function handleRegister({ name = "Douglas", phone = "(55)99999-9999", email = "douglas@hotmail.com", avatarId = "1", password = "123456", passwordConfirmation = "123456" }: FormDataProps) {
+    try {
+      const response = await api.post('/sellers', { name, phone, email, avatarId, password, passwordConfirmation })
+      console.log(response.data);
+      Toast.show({
+        type: "success",
+        text1: "Nova Conta",
+        text2: "Conta cadastrada com sucesso!",
+      });
+    } catch (error) {
+      const isAppError = error instanceof AppError;
+      const title = isAppError ? error.message : "Não foi possível criar a conta. Tente novamente mais tarde.";
+      Toast.show({
+        type: "error",
+        text1: "Erro ao registrar",
+        text2: title,
+      });
+    }
   }
 
   useEffect(() => {
@@ -58,6 +76,7 @@ export default function Register() {
           </View>
         </View>
       </ScrollView>
+      <Toast />
     </KeyboardAvoidingView>
   )
 }

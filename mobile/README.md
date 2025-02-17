@@ -6,7 +6,7 @@
 
 ## Features
 
-- [ ] User register
+- [x] User register
 - [ ] Image upload
 - [ ] App authentication
 
